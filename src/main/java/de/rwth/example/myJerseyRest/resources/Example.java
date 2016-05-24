@@ -6,8 +6,8 @@ import javax.ws.rs.PathParam;
 
 import com.wordnik.swagger.annotations.*;
 
-@Path("/example")
-@Api(value="/example", description = "Root Resource", position = 0)
+@Path("/examples")
+@Api(value="/examples", description = "Root Resource", position = 0)
 public class Example {
 
   @GET

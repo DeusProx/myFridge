@@ -12,7 +12,7 @@ import org.glassfish.jersey.server.ServerProperties;
  *
  * @author Gordon Lawrenz <lawrenz@dbis.rwth-aachen.de>
  */
-@ApplicationPath("/*")
+@ApplicationPath("/api/*")
 public class WebApplication extends ResourceConfig {
 
 	/**
