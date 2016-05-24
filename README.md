@@ -25,6 +25,7 @@ gradle.bat clean build appRun
 
 ### 1.3 Use it
 Now you can reach our Swagger application by opening [http://localhost:8080/myJerseyRest](http://localhost:8080/myJerseyRest) in your favorit browser. Swagger lists every resource of your API and provides an easy way to test your implemented functions.
+![alt text](https://github.com/DeusProx/myJerseyRest/blob/master/docu/jersey.swagger.example.png "Logo Title Text 1")
 The real API is reachable via the url [http://localhost:8080/myJerseyRest/api](http://localhost:8080/myJerseyRest/api) and the api-docs created by swagger are reachable under [http://localhost:8080/myJerseyRest/api/api-docs](http://localhost:8080/myJerseyRest/api/api-docs).
 ### 1.4 Start developing (Linux)
 * install java & git & gradle
