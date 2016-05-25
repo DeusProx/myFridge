@@ -16,6 +16,7 @@ cd myJersey-Rest
 ```
 
 ### 1.2 Run it in Windows
+* You need to have a valid JDK installation: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 * Download the project from https://github.com/DeusProx/myJerseyRest/archive/master.zip
 * Extract it with some windows tool
 * Run the gradle wrapper inside the project
