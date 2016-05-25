@@ -1,6 +1,13 @@
 # myJerseyRest
 
 This project contains a small Java Rest Backend written with the Jersey Framework, Swagger and is buildet by gradle.
+## Contents
+* [Run it in Linux](#11-run-it-in-linux)
+* [Run it in Windows](#12-run-it-in-windows)
+* [Use it](#13-use-it)
+* [Start developing (Linux)](#14-start-developing-linux)
+* [Code Structure] (#code-structure)
+* [Committers] (#committers)
 
 ## 1. Getting started
 ### 1.1 Run it in Linux
