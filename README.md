@@ -20,7 +20,7 @@ cd myJersey-Rest
 * Extract it with some windows tool
 * Run the gradle wrapper inside the project
 ```
-gradle.bat clean build appRun
+gradlew.bat clean build appRun
 ```
 
 ### 1.3 Use it
