@@ -4,6 +4,7 @@ This project contains a small Java Rest Backend written with the Jersey Framewor
 
 ## 1. Getting started
 ### 1.1 Run it in Linux
+* You need to have a valid JDK installed. See [1.4](#14-start-developing-linux) for how to install Java from Oracle.
 * Download & extract the project
 ```
 wget https://github.com/DeusProx/myJerseyRest/archive/master.zip
