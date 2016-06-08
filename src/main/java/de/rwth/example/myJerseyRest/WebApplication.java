@@ -6,6 +6,7 @@ import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
 
+import de.rwth.example.myJerseyRest.InjectionBinder;
 
 /**
  * Deployment class for a JAX-RS 2.0 (Jersey) application with Servlet 3.0.
@@ -21,6 +22,8 @@ public class WebApplication extends ResourceConfig {
 	public WebApplication() {
 		System.out.println("myJerseyRest starts...");
 		packages("de.rwth.example.myJerseyRest.resources");
+		//packages("de.rwth.example.myJerseyRest.services");
+		register(new InjectionBinder());
 
 		packages("com.wordnik.swagger.jaxrs.json");
 		register(com.wordnik.swagger.jersey.listing.ApiListingResource.class);

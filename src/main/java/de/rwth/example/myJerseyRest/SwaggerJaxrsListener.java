@@ -1,4 +1,4 @@
-package de.dbis.acis.cloud.TethysUserStorage;
+package de.rwth.example.myJerseyRest;
 
 import java.util.ResourceBundle;
 
