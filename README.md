@@ -1,9 +1,17 @@
 # myJerseyRest
 
-This project contains a small Java Rest Backend written with the Jersey Framework, Swagger and is buildet by gradle.
+This project contains a small Java Rest Backend written with the Jersey Framework, Swagger and is builded by gradle.
+## Contents
+* [Run it in Linux](#11-run-it-in-linux)
+* [Run it in Windows](#12-run-it-in-windows)
+* [Use it](#13-use-it)
+* [Start developing (Linux)](#14-start-developing-linux)
+* [Code Structure] (#code-structure)
+* [Committers] (#committers)
 
 ## 1. Getting started
 ### 1.1 Run it in Linux
+* You need to have a valid JDK installed. See [1.4](#14-start-developing-linux) for how to install Java from Oracle.
 * Download & extract the project
 ```
 wget https://github.com/DeusProx/myJerseyRest/archive/master.zip
@@ -16,15 +24,17 @@ cd myJersey-Rest
 ```
 
 ### 1.2 Run it in Windows
+* You need to have a valid JDK installation: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 * Download the project from https://github.com/DeusProx/myJerseyRest/archive/master.zip
-* Extract it with some windows tool
+* Extract it with some windows tool and rename the directory containing the project to "myJerseyRest". Otherwise all following URLs will change according to the name you set.
 * Run the gradle wrapper inside the project
 ```
-gradle.bat clean build appRun
+gradlew.bat clean build appRun
 ```
 
 ### 1.3 Use it
 Now you can reach our Swagger application by opening [http://localhost:8080/myJerseyRest](http://localhost:8080/myJerseyRest) in your favorit browser. Swagger lists every resource of your API and provides an easy way to test your implemented functions.
+![alt text](https://github.com/DeusProx/myJerseyRest/blob/master/docu/jersey.swagger.example.png "Logo Title Text 1")
 The real API is reachable via the url [http://localhost:8080/myJerseyRest/api](http://localhost:8080/myJerseyRest/api) and the api-docs created by swagger are reachable under [http://localhost:8080/myJerseyRest/api/api-docs](http://localhost:8080/myJerseyRest/api/api-docs).
 ### 1.4 Start developing (Linux)
 * install java & git & gradle
