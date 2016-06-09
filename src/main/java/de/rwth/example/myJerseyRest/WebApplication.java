@@ -22,7 +22,6 @@ public class WebApplication extends ResourceConfig {
 	public WebApplication() {
 		System.out.println("myJerseyRest starts...");
 		packages("de.rwth.example.myJerseyRest.resources");
-		//packages("de.rwth.example.myJerseyRest.services");
 		register(new InjectionBinder());
 
 		packages("com.wordnik.swagger.jaxrs.json");

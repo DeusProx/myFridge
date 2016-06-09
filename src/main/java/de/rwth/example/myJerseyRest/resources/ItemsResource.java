@@ -24,8 +24,7 @@ import de.rwth.example.myJerseyRest.models.Item;
 import de.rwth.example.myJerseyRest.services.interfaces.ItemDAO;
 
 @Path("/fridge/items")
-@Api(value="/fridge/items", description = "Items in our fridge", position = 1)
-
+@Api(value="/fridge/items", description = "Fridge API", position = 1)
 public class ItemsResource {
 
   @Inject
@@ -33,7 +32,7 @@ public class ItemsResource {
 
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
-  @ApiOperation(value="Verifies an accessToken.")
+  @ApiOperation(value="Insert an item into the fridge.")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
   } )
@@ -44,40 +43,39 @@ public class ItemsResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @ApiOperation(value="Verifies an accessToken.")
+  @ApiOperation(value="Lists all items in the fridge.")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
   } )
   public Response listItems() {
     return Response.status(Status.OK).entity(this.itemDAO.getAllItems()).build();
-    //return Response.status(Status.OK).build();
   }
 
   @GET
   @Path("/{itemid}")
   @Produces(MediaType.APPLICATION_JSON)
-  @ApiOperation(value="Verifies an accessToken.")
+  @ApiOperation(value="Gets one specific item from the fridge.")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
   } )
-  public Response showFridgeItem(@PathParam("itemid") String itemid) {
+  public Response getItem(@PathParam("itemid") String itemid) {
     return Response.status(Status.OK).build();
   }
 
   @PUT
   @Path("/{itemid}")
   @Produces(MediaType.APPLICATION_JSON)
-  @ApiOperation(value="Verifies an accessToken.")
+  @ApiOperation(value="Updates the data of one item in the fridge.")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
   } )
-  public Response updateFridgeItem(@PathParam("itemid") String itemid) {
+  public Response updateItem(@PathParam("itemid") String itemid) {
     return Response.status(Status.OK).build();
   }
 
   @DELETE
   @Path("/{itemid}")
-  @ApiOperation(value="Verifies an accessToken.")
+  @ApiOperation(value="Removes an item from the fridge.")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
   } )

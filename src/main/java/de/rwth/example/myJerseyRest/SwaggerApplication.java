@@ -20,7 +20,7 @@ import com.wordnik.swagger.reader.ClassReaders;
  * @author Gordon Lawrenz <lawrenz@dbis.rwth-aachen.de>
  */
 @WebListener
-public class SwaggerJaxrsListener implements ServletContextListener {
+public class SwaggerApplication implements ServletContextListener {
 
 	/* (non-Javadoc)
 	 * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
