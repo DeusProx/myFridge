@@ -1,9 +1,9 @@
-package de.rwth.example.myJerseyRest;
+package de.rwth.i9.examples.myFridge;
 
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
-import de.rwth.example.myJerseyRest.services.interfaces.ItemDAO;
-import de.rwth.example.myJerseyRest.services.ItemMemoryDAO;
+import de.rwth.i9.examples.myFridge.services.interfaces.ItemDAO;
+import de.rwth.i9.examples.myFridge.services.ItemMemoryDAO;
 
 public class InjectionBinder extends AbstractBinder {
 

@@ -5,7 +5,7 @@ apply from:   'gretty.plugin'
 sourceCompatibility = 1.8
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.13'
+  gradleVersion = '3.0'
 }
 
 repositories {
@@ -23,4 +23,8 @@ List swagger = [
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
     compile jersey, swagger
+}
+
+war { //because we have more than 65535 files!
+    zip64 true
 }

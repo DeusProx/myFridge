@@ -1,11 +1,11 @@
-package de.rwth.example.myJerseyRest.services;
+package de.rwth.i9.examples.myFridge.services;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Collection;
 
-import de.rwth.example.myJerseyRest.models.Item;
-import de.rwth.example.myJerseyRest.services.interfaces.ItemDAO;
+import de.rwth.i9.examples.myFridge.models.Item;
+import de.rwth.i9.examples.myFridge.services.interfaces.ItemDAO;
 
 public class ItemMemoryDAO implements ItemDAO {
 	Map<String,Item> items = new HashMap<String,Item>();
@@ -17,22 +17,22 @@ public class ItemMemoryDAO implements ItemDAO {
 
 	public Collection<Item> getAllItems() {
     for (Item item : this.items.values()) {
-      System.out.println(item.getName());
+      System.out.println(item.name);
     }
 		return this.items.values();
 	}
 
 	public void insertItem(Item item) {
-		this.items.put(item.getName(), item);
-    System.out.println(this.getItemByName(item.getName()).getName());
+		this.items.put(item.name, item);
+    System.out.println(this.getItemByName(item.name).name);
 	}
 
 	public void updateItem(Item item)	{
-		Item editItem = this.getItemByName(item.getName());
-		editItem.setName(item.getName());
+		Item editItem = this.getItemByName(item.name);
+		editItem.name = item.name;
 	}
 
 	public void deleteItem(Item item)	{
-		this.items.remove(item.getName());
+		this.items.remove(item.name);
 	}
 }

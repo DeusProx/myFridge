@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Set the base href -->
+    <!--<base href="/">-->
+    <script type="text/javascript">
+      document.write("<base href='" + window.location.href + "' />");
+    </script>
+    <title>myFridge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <script src="./node_modules/zone.js/dist/zone.js"></script>
+    <script src="./node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="./node_modules/systemjs/dist/system.js"></script>
+
+    <!-- Google Roboto Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" href="./public/css/materialDesignIcons.css"  type="text/css">
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="./node_modules/material-design-lite/material.min.css">
+    <script src="./node_modules/material-design-lite/material.min.js"></script>
+    
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.import('./systemjs.config.js').then(function () {
+        System.import('./app');
+      }).catch(console.error.bind(console));
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <fridge-app>
+      <div style="position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner mdl-spinner--x3 is-active"></div>
+      </div>
+    </fridge-app>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-package de.rwth.example.myJerseyRest.resources;
+package de.rwth.i9.examples.myFridge.resources;
 
 //import java.util.Collection;
 
@@ -20,11 +20,11 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiResponse;
 import com.wordnik.swagger.annotations.ApiResponses;
 
-import de.rwth.example.myJerseyRest.models.Item;
-import de.rwth.example.myJerseyRest.services.interfaces.ItemDAO;
+import de.rwth.i9.examples.myFridge.models.Item;
+import de.rwth.i9.examples.myFridge.services.interfaces.ItemDAO;
 
-@Path("/fridge/items")
-@Api(value="/fridge/items", description = "Fridge API", position = 1)
+@Path("/items")
+@Api(value="items", description = "Fridge API", position = 2)
 public class ItemsResource {
 
   @Inject
@@ -36,7 +36,8 @@ public class ItemsResource {
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
   } )
-  public Response insertItemIntoFridge(Item item) {
+  public Response insertItem(Item item) {
+    System.out.println(item.toString());
     this.itemDAO.insertItem(item);
     return Response.status(Status.OK).build();
   }

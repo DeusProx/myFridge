@@ -1,6 +1,4 @@
-package de.rwth.example.myJerseyRest;
-
-import java.util.ResourceBundle;
+package de.rwth.i9.examples.myFridge;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -30,7 +28,7 @@ public class SwaggerApplication implements ServletContextListener {
 		System.out.println("Swagger starts...");
 		SwaggerConfig swaggerConfig = new SwaggerConfig();
 		ConfigFactory.setConfig(swaggerConfig);
-		swaggerConfig.setBasePath("http://localhost:8080/myJerseyRest/api"); // is then available under http://localhost:8080/myJerseyRest/api-docs
+		swaggerConfig.setBasePath("http://localhost:8080/myFridge/api"); // is then available under http://localhost:8080/myJerseyRest/api/api-docs
 		swaggerConfig.setApiVersion("1.0.0");
 		ScannerFactory.setScanner(new DefaultJaxrsScanner());
 		ClassReaders.setReader(new DefaultJaxrsApiReader());
