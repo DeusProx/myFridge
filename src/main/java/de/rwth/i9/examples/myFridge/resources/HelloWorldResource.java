@@ -20,6 +20,7 @@ import javax.ws.rs.core.Response.Status;
 public class HelloWorldResource {
 
   @GET
+  @Produces(MediaType.TEXT_PLAIN)
   @ApiOperation(value="responds with 'hello world'")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")

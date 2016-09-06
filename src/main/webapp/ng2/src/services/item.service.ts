@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ItemService {
-    private itemsAPIEndpoint:string = "http://vm.thneed.de:8080/myFridge/api/items" // URL to webapi
+    private itemsAPIEndpoint:string = "/myFridge/api/items" // URL to webapi
     constructor (private http: Http) {}
     
 
@@ -18,12 +18,17 @@ export class ItemService {
     }
 
     public addItem(item: Item): Observable<Boolean> {
-        console.log(item);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.itemsAPIEndpoint, item, options)
                     .map(res => res.status == 201 )
+                    .catch(this.handleError);
+    }
+
+    public removeItem(id: number): Observable<Boolean> {
+        return this.http.delete(this.itemsAPIEndpoint + "/" + id)
+                    .map(res => res.status == 200 )
                     .catch(this.handleError);
     }
 

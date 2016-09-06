@@ -8,55 +8,55 @@ import { ItemService } from 'src/services/item.service';
     selector: 'fridge-itemList',
     template: `
     <div class="mdl-grid">
-        <div style="margin: auto; width: auto;" class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div style="margin: auto; width: auto; min-height: auto;" class="demo-card-wide mdl-card mdl-shadow--2dp">
             <form [formGroup]="itemForm" (ngSubmit)="addItem()">
-                <div class="mdl-card__title">
+                <div (click)="this.insertItemIsOpen=!this.insertItemIsOpen" class="mdl-card__title">
                     <h2 class="mdl-card__title-text">Insert new item</h2>
                 </div>
 
-                <div class="mdl-card__supporting-text mdl-card__actions mdl-card--border"  style="display:flex; flex-direction: row;">
-                <div style="display:flex; flex-direction: column;">
-                    <span> Common Information: </span>
-                    <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input id="nameInput" formControlName="name" type="text" class="mdl-textfield__input"/>
-                        <label for="nameInput" class="mdl-textfield__label">name<span *ngIf="itemForm.controls.name.errors">: required!</span></label>
-                    </div>
-                    <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input id="bbdInput" formControlName="bbd" type="date" class="mdl-textfield__input" />
-                        <label for="bbdInput" class="mdl-textfield__label">best-before date (DD.MM.YYYY)</label>
-                    </div>
-                    <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input id="descriptionInput" formControlName="description" type="text" class="mdl-textfield__input"/>
-                        <label for="descriptionInput" class="mdl-textfield__label">description</label>
-                    </div>
-                    <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input id="ingredientsInput" formControlName="ingredients" type="text" class="mdl-textfield__input"/>
-                        <label for="ingredientsInput" class="mdl-textfield__label">ingredients</label>
-                    </div>
-                </div>
-                <fieldset formGroupName="nutritions">
+                <div [hidden]="!insertItemIsOpen" class="mdl-card__supporting-text mdl-card__actions mdl-card--border"  style="display:flex; flex-direction: row;">
                     <div style="display:flex; flex-direction: column;">
-                        <span> Nutritional value (per 100gr): </span>
+                        <span> Common Information: </span>
                         <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="kcalInput" formControlName="kcal" type="number" class="mdl-textfield__input"/>
-                            <label for="kcalInput" class="mdl-textfield__label">kcal</label>
+                            <input id="nameInput" formControlName="name" type="text" class="mdl-textfield__input"/>
+                            <label for="nameInput" class="mdl-textfield__label">name<span *ngIf="itemForm.controls.name.errors">: required!</span></label>
                         </div>
                         <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="proteinInput" formControlName="protein" type="number" class="mdl-textfield__input"/>
-                            <label for="proteinInput" class="mdl-textfield__label">protein</label>
+                            <input id="bbdInput" formControlName="bbd" type="date" class="mdl-textfield__input" />
+                            <label for="bbdInput" class="mdl-textfield__label">best-before date (DD.MM.YYYY)</label>
                         </div>
                         <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="fatInput" formControlName="fat" type="number" class="mdl-textfield__input"/>
-                            <label for="fatInput" class="mdl-textfield__label">fat</label>
+                            <input id="descriptionInput" formControlName="description" type="text" class="mdl-textfield__input"/>
+                            <label for="descriptionInput" class="mdl-textfield__label">description</label>
                         </div>
                         <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input id="carbohydratesInput" formControlName="carbohydrates" type="number" class="mdl-textfield__input"/>
-                            <label for="carbohydratesInput" class="mdl-textfield__label">carbohydrates</label>
+                            <input id="ingredientsInput" formControlName="ingredients" type="text" class="mdl-textfield__input"/>
+                            <label for="ingredientsInput" class="mdl-textfield__label">ingredients</label>
                         </div>
                     </div>
-                </fieldset>
+                    <fieldset formGroupName="nutritions">
+                        <div style="display:flex; flex-direction: column;">
+                            <span> Nutritional value (per 100gr): </span>
+                            <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input id="kcalInput" formControlName="kcal" type="number" class="mdl-textfield__input"/>
+                                <label for="kcalInput" class="mdl-textfield__label">kcal</label>
+                            </div>
+                            <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input id="proteinInput" formControlName="protein" type="number" class="mdl-textfield__input"/>
+                                <label for="proteinInput" class="mdl-textfield__label">protein</label>
+                            </div>
+                            <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input id="fatInput" formControlName="fat" type="number" class="mdl-textfield__input"/>
+                                <label for="fatInput" class="mdl-textfield__label">fat</label>
+                            </div>
+                            <div mdl class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input id="carbohydratesInput" formControlName="carbohydrates" type="number" class="mdl-textfield__input"/>
+                                <label for="carbohydratesInput" class="mdl-textfield__label">carbohydrates</label>
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
-                <div class="mdl-card__actions mdl-card--border" style="display:flex; flex-direction: column;">
+                <div [hidden]="!insertItemIsOpen" class="mdl-card__actions mdl-card--border" style="display:flex; flex-direction: column;">
                     <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
                         Add Item
                     </button>
@@ -90,6 +90,7 @@ import { ItemService } from 'src/services/item.service';
                 <div class="mdl-card__supporting-text mdl-card__actions mdl-card--border" style="display:flex; flex-direction: column;">
                      <span>Common Information:</span>
                     <div class="mdl-card__supporting-text" style="display:flex; flex-direction: column;">
+                        <span>id: {{item.id}}</span>
                         <span>owner: {{item.owner}}</span>
                         <span>best-before: {{item.bbd}}</span>
                         <span>description: {{item.description}}</span>
@@ -103,6 +104,11 @@ import { ItemService } from 'src/services/item.service';
                         <span>carbohydrates: {{item.nutritions.carbohydrates}} gr</span>
                     </div>
                 </div>
+                  <div class="mdl-card__menu">
+                    <button (click)="removeItem(item.id)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </div>
             </div>
         </template>
     </div>
@@ -110,9 +116,10 @@ import { ItemService } from 'src/services/item.service';
     providers: [ ItemService ]
 })
 export class ItemListComponent {
-    itemForm: FormGroup;
+    itemForm: FormGroup
     errorMessage: string
     items: Item[]
+    insertItemIsOpen: boolean = false;
 
     constructor (private itemService: ItemService, fb:FormBuilder) {
         this.itemForm = fb.group({
@@ -147,14 +154,22 @@ export class ItemListComponent {
 
         let newItem:Item = <Item>this.itemForm.value
         newItem.owner = localStorage.getItem("username")
-        console.log(newItem)
 
         this.itemService.addItem(newItem).subscribe(
             boolean => {
-                this.getHeroes(); this.itemForm.reset();
+                this.getHeroes()
+                this.itemForm.reset({bbd: this.stringToday()})
+                this.insertItemIsOpen = !this.insertItemIsOpen
             },
             error => this.errorMessage = <any>error
         )   
+    }
+
+    removeItem(id:number) {
+        this.itemService.removeItem(id).subscribe (
+            boolean => this.getHeroes(),
+            error => this.errorMessage = <any>error
+        )
     }
     private stringToday():String {
         let today = new Date();
