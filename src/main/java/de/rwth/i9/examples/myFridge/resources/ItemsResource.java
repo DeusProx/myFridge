@@ -31,13 +31,14 @@ public class ItemsResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "Insert an item into the fridge.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK")
     })
     public Response insertItem(Item item) {
-        this.itemDAO.insertItem(item);
-        return Response.status(Status.OK).build();
+        item = this.itemDAO.insertItem(item);
+        return Response.status(Status.OK).entity(item).build();
     }
 
     @GET

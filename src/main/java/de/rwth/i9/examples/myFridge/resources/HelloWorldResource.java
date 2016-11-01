@@ -21,13 +21,25 @@ public class HelloWorldResource {
 
   @GET
   @Produces(MediaType.TEXT_PLAIN)
+  @Path("/1")
   @ApiOperation(value="responds with 'hello world'")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
   } )
-  public Response listItems() {
+  public Response sayHelloWorld() {
     String output = "Jersey says 'Hello World!'";
     return Response.status(Status.OK).entity(output).build();
   }
 
+  @GET
+  @Produces(MediaType.TEXT_HTML)
+  @Path("/2")
+  @ApiOperation(value="responds with 'hello world'")
+  @ApiResponses( {
+    @ApiResponse(code = 200, message = "OK")
+  } )
+  public Response respondWithHTML() {
+    String html = "<html><head><title>myFridge</title></head><body>Jersey yells <h1>'Hello World!'</h1></body></html>";
+    return Response.status(Status.OK).entity(html).build();
+  }
 }

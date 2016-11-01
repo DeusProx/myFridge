@@ -24,7 +24,7 @@ public class ItemMemoryDAO implements ItemDAO {
 		return this.items.values();
 	}
 
-	public void insertItem(Item item) {
+	public Item insertItem(Item item) {
 
 		int newId = this.random.nextNonNegative();
 		while(this.items.containsKey(newId)){
@@ -32,6 +32,7 @@ public class ItemMemoryDAO implements ItemDAO {
 		}
 		item.setId(newId);
 		this.items.put(item.getId(), item);
+		return item;
 	    //System.out.println(this.getItemByName(item.name).name);
 	}
 

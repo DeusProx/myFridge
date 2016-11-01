@@ -7,7 +7,6 @@ import de.rwth.i9.examples.myFridge.models.Item;
 public interface ItemDAO {
 	Item getItemById(int id);
 	Collection<Item> getAllItems();
-	void insertItem(Item item);
-	//void updateItem(Item item);
+	Item insertItem(Item item);
 	void deleteItemById(int id);
 }

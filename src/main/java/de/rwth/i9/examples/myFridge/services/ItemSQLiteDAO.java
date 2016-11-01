@@ -26,13 +26,13 @@ public class ItemSQLiteDAO implements ItemDAO {
 		return results;
 	}
 
-	public void insertItem(Item item) {
+	public Item insertItem(Item item) {
 		EntityTransaction entityTransaction = this.entityManager.getTransaction();
 		entityTransaction.begin();
 		this.entityManager.persist(item);
 		entityTransaction.commit();
 		//this.entityManager.flush();
-		return;
+		return item;
 	}
 
 	//TODO
