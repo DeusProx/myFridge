@@ -21,7 +21,6 @@ public class HelloWorldResource {
 
   @GET
   @Produces(MediaType.TEXT_PLAIN)
-  @Path("/1")
   @ApiOperation(value="responds with 'hello world'")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")
@@ -33,7 +32,6 @@ public class HelloWorldResource {
 
   @GET
   @Produces(MediaType.TEXT_HTML)
-  @Path("/2")
   @ApiOperation(value="responds with 'hello world'")
   @ApiResponses( {
     @ApiResponse(code = 200, message = "OK")

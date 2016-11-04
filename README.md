@@ -1,4 +1,4 @@
-# myJerseyRest
+# myFridge
 
 This project contains a small Java Rest Backend written with the Jersey Framework, Swagger and is builded by gradle.
 ## Contents
