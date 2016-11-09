@@ -6,11 +6,33 @@ import de.rwth.i9.examples.myFridge.services.interfaces.ItemDAO;
 import de.rwth.i9.examples.myFridge.services.ItemMemoryDAO;
 import de.rwth.i9.examples.myFridge.services.ItemSQLiteDAO;
 
-import java.util.ResourceBundle;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class InjectionBinder extends AbstractBinder {
 
-    ResourceBundle config = ResourceBundle.getBundle("config");
+    Properties prop = new Properties();
+
+    public InjectionBinder() {
+      super();
+      InputStream isConfig = null;
+      try {
+        isConfig = new FileInputStream("src/main/resources/config.prop");
+        this.prop.load(isConfig);
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      } finally {
+        if (isConfig != null) {
+          try {
+            isConfig.close();
+          } catch (IOException ex) {
+            ex.printStackTrace();
+          }
+        }
+      }
+    }
 
     /* (non-Javadoc)
        * @see org.glassfish.hk2.utilities.binding.AbstractBinder#configure()
@@ -20,7 +42,7 @@ public class InjectionBinder extends AbstractBinder {
     }
 
     protected void configureDAO() {
-        String storageType = this.config.getString("storageType");
+        String storageType = this.prop.getProperty("storageType");
         System.out.println("Used StorageType: " + storageType);
         switch(storageType) {
             case "memory":
