@@ -7,13 +7,13 @@ import javax.persistence.*;
 
 import de.rwth.i9.examples.myFridge.models.Item;
 import de.rwth.i9.examples.myFridge.services.interfaces.ItemDAO;
-import de.rwth.i9.examples.myFridge.util.JPAHelper;
+import de.rwth.i9.examples.myFridge.util.EMProvider;
 
 public class ItemSQLiteDAO implements ItemDAO {
 	private EntityManager entityManager;
 
 	public ItemSQLiteDAO() {
-		entityManager = JPAHelper.getInstance().createEntityManager();
+		entityManager = EMProvider.getInstance().createEntityManager();
 	}
 
 	public Item getItemById(int id) {
@@ -35,11 +35,6 @@ public class ItemSQLiteDAO implements ItemDAO {
 		return item;
 	}
 
-	//TODO
-	/*public void updateItem(Item item)	{
-		Item editItem = this.getItemById(item.getId());
-		editItem.setId();name = item.name;
-	}*/
 
 	public void deleteItemById(int id)	{
 		EntityTransaction entityTransaction = this.entityManager.getTransaction();

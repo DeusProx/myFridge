@@ -7,14 +7,14 @@ import javax.persistence.Persistence;
  * Singleton Pattern to just have one EntityManagerFactory
  * Created by deusprox on 06.09.16.
  */
-public class JPAHelper {
+public class EMProvider {
     private static final String PERSISTENCE_UNIT_NAME = "myFridge";
     private static EntityManagerFactory entityManagerFactory = null;
 
     /**
      * Empty - no instantiation
      */
-    private JPAHelper() { }
+    private EMProvider() { }
 
     /**
      * static initializer - create EntityManagerFactory
