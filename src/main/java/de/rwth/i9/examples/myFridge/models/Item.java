@@ -23,6 +23,24 @@ public class Item implements Serializable {
     @JoinColumn
     private Nutritions nutritions;
 
+    Item () {} //default constructor, needed for JPA
+
+    public Item(
+        String name,
+        String bbd,
+        String description,
+        String owner,
+        String ingredients,
+        Nutritions nutritions
+    ) {
+        this.name = name;
+        this.bbd = bbd;
+        this.description = description;
+        this.owner = owner;
+        this.ingredients = ingredients;
+        this.nutritions = nutritions;
+    }
+
     public int getId() {
         return id;
     }
@@ -86,8 +104,29 @@ public class Item implements Serializable {
                 + this.bbd + "|"
                 + this.description + "|"
                 + this.owner + "|"
-                + this.ingredients + "&"
+                + this.ingredients + " & "
                 + this.nutritions.toString();
+    }
+
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if(getClass()!=obj.getClass()){
+            return false;
+        }
+        final Item item = (Item) obj;
+        if (
+            this.getId() != item.getId() 
+            || !this.getName().equals(item.getName())
+            || !this.getBbd().equals(item.getBbd())
+            || !this.getDescription().equals(item.getDescription())
+            || !this.getOwner().equals(item.getOwner())
+            || !this.getIngredients().equals(item.getIngredients())
+            || !this.getNutritions().equals(item.getNutritions())
+        )  return false;
+        
+        return true; 
     }
 }
 

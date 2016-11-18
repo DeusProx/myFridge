@@ -18,6 +18,20 @@ public class Nutritions implements Serializable {
     private int fat;
     private int carbohydrates;
 
+    Nutritions () {} //default constructor, needed for JPA
+
+    public Nutritions (
+        int kcal,
+        int protein,
+        int fat,
+        int carbohydrates
+    ) {
+        this.kcal = kcal;
+        this.protein = protein;
+        this.fat = fat;
+        this.carbohydrates = carbohydrates; 
+    }
+
     public int getId(){
         return id;
     }
@@ -67,4 +81,22 @@ public class Nutritions implements Serializable {
                 + this.carbohydrates;
     }
 
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if(getClass()!=obj.getClass()){
+            return false;
+        }
+        final Nutritions nut = (Nutritions) obj;
+        if (
+            this.getId() != nut.getId() 
+            || this.getKcal() != nut.getKcal()
+            || this.getProtein() != nut.getKcal()
+            || this.getFat() != nut.getFat()
+            || this.getCarbohydrates() != nut.getCarbohydrates()
+        )  return false;
+        
+        return true; 
+    }
 }
