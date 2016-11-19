@@ -4,8 +4,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@NamedNativeQueries({
+/*@NamedNativeQueries({
         @NamedNativeQuery(name = "Item.findAllItems", query = "SELECT * FROM Item", resultClass = Item.class)
+})*/
+@NamedQueries({
+        @NamedQuery(name = "Item.findAllItems", query = "SELECT i FROM Item i")
 })
 @TableGenerator(name="item", allocationSize=1)
 public class Item implements Serializable {
